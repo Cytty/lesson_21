@@ -2,7 +2,7 @@ public class Game {
     private boolean trafficGreenLight;
 
 
-    public Game (boolean trafficGreenLight) {                 //конструктор
+    public Game(boolean trafficGreenLight) {                 //конструктор
         this.trafficGreenLight = trafficGreenLight;
     }
 
@@ -14,7 +14,7 @@ public class Game {
         trafficGreenLight = newTrafficGreenLight;
     }
 
-    public boolean isFailed (int speed) {                            // метод
+    public boolean isFailed(int speed) {                            // метод
         if (trafficGreenLight == false && Math.abs(speed) != 0) {
             return false;
         } else {

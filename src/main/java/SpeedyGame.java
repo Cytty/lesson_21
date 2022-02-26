@@ -1,16 +1,16 @@
 public class SpeedyGame extends Game {
     private int maxSpeed;
 
-    public SpeedyGame (boolean trafficGreenLight, int maxSpeed) {  //конструктор
+    public SpeedyGame(boolean trafficGreenLight, int maxSpeed) {  //конструктор
         super(trafficGreenLight);
         this.maxSpeed = Math.abs(maxSpeed);
     }
 
-    public void setMaxSpeed (int newMaxSpeed) {                        //сеттер
+    public void setMaxSpeed(int newMaxSpeed) {                        //сеттер
         if (newMaxSpeed < 0) {
             return;
         }
-        maxSpeed =  newMaxSpeed;
+        maxSpeed = newMaxSpeed;
     }
 
     public int getMaxSpeed() {                                        //геттер
