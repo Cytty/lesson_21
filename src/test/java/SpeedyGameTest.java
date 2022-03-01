@@ -4,349 +4,261 @@ import org.junit.jupiter.api.Test;
 public class SpeedyGameTest {
 
     @Test
-    public void speedyGameAllNegSpeedsRed() {
+    public void allNegSpeedsRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(-1);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 0;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameAllNegSpeedsGreen() {
+    public void allNegSpeedsGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, -5);
         speedyGame.setMaxSpeed(-1);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 0;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsNegSpeedRed() {
+    public void setNegMaxSpeedsNegSpeedRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(-3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -4;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsNegSpeedGreen() {
+    public void setNegMaxSpeedsNegSpeedGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(-3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -4;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsIsSpeedRed() {
+    public void setNegMaxSpeedsIsSpeedRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -5;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsIsSpeedGreen() {
+    public void setNegMaxSpeedsIsSpeedGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -5;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorderNegRed() {
+    public void speedIsBorderNegRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -6;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorderNegGreen() {
+    public void speedIsBorderNegGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -6;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorderPosRed() {
+    public void speedIsBorderPosRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 7);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorderPosGreen() {
+    public void speedIsBorderPosGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 7);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsIsSpeedPosRed() {
+    public void setNegMaxSpeedsIsSpeedPosRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 7);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 7;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSetNegMaxSpeedsIsSpeedPosGreen() {
+    public void setNegMaxSpeedsIsSpeedPosGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 7);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 7;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorder2PosRed() {
+    public void speedIsBorder2PosRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(-5);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameSpeedIsBorder2PosGreen() {
+    public void speedIsBorder2PosGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(-4);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameSpeedNoMaxSpeedRed() {
+    public void speedNoMaxSpeedRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(0);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -1;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameResultChangeGreen() {
+    public void resultChangeGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, -5);
         speedyGame.setMaxSpeed(7);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameResultChangeRed() {
+    public void resultChangeRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(7);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 6;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameResultChangeNegSpeedGreen() {
+    public void resultChangeNegSpeedGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -5;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameResultChangeNegSpeedRed() {
+    public void resultChangeNegSpeedRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -5;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameResultChangeAllSpeedPosGreen() {
+    public void resultChangeAllSpeedPosGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, 5);
         speedyGame.setMaxSpeed(3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 4;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameResultChangeAllSpeedPosRed() {
+    public void resultChangeAllSpeedPosRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = 4;
-        boolean expected = false;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertFalse(actual);
     }
 
     @Test
-    public void speedyGameResultChangeAllSpeedNegGreen() {
+    public void resultChangeAllSpeedNegGreen() {
         SpeedyGame speedyGame = new SpeedyGame(true, -5);
         speedyGame.setMaxSpeed(-3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -4;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test
-    public void speedyGameResultChangeAllSpeedNegRed() {
+    public void resultChangeAllSpeedNegRed() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(-3);
         speedyGame.setTrafficGreenLight(false);
 
         int speed = -4;
-        boolean expected = true;
         boolean actual = speedyGame.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameGreenRedNeg() {
-        Game game = new Game(true);
-        game.setTrafficGreenLight(false);
-        int speed = -5;
-        boolean expected = false;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameRedGreenSpeedNeg() {
-        Game game = new Game(false);
-        game.setTrafficGreenLight(true);
-
-        int speed = -5;
-        boolean expected = true;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameGreenGreenSpeedZero() {
-        Game game = new Game(true);
-        game.setTrafficGreenLight(true);
-
-        int speed = 0;
-        boolean expected = true;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameRedRedSpeedZero() {
-        Game game = new Game(false);
-        game.setTrafficGreenLight(false);
-
-        int speed = 0;
-        boolean expected = true;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameGreenRegSpeedPos() {
-        Game game = new Game(true);
-        game.setTrafficGreenLight(false);
-
-        int speed = 5;
-        boolean expected = false;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void gameRegGreenSpeedPos() {
-        Game game = new Game(false);
-        game.setTrafficGreenLight(true);
-
-        int speed = 5;
-        boolean expected = true;
-        boolean actual = game.isFailed(speed);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
 
     @Test
-    public void speedyGameGetMaxSpeedNegNeg() {
+    public void getMaxSpeedNegNeg() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(-1);
 
@@ -356,7 +268,7 @@ public class SpeedyGameTest {
     }
 
     @Test
-    public void speedyGameGetMaxSpeedNegPos() {
+    public void getMaxSpeedNegPos() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(1);
 
@@ -366,7 +278,7 @@ public class SpeedyGameTest {
     }
 
     @Test
-    public void speedyGameGetMaxSpeedPosPos() {
+    public void getMaxSpeedPosPos() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(1);
 
@@ -376,7 +288,7 @@ public class SpeedyGameTest {
     }
 
     @Test
-    public void speedyGameGetMaxSpeedPosNeg() {
+    public void getMaxSpeedPosNeg() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(-1);
 
@@ -386,7 +298,7 @@ public class SpeedyGameTest {
     }
 
     @Test
-    public void speedyGameGetMaxSpeedNegZero() {
+    public void getMaxSpeedNegZero() {
         SpeedyGame speedyGame = new SpeedyGame(false, -5);
         speedyGame.setMaxSpeed(0);
 
@@ -396,7 +308,7 @@ public class SpeedyGameTest {
     }
 
     @Test
-    public void speedyGameGetMaxSpeedPosZero() {
+    public void getMaxSpeedPosZero() {
         SpeedyGame speedyGame = new SpeedyGame(false, 5);
         speedyGame.setMaxSpeed(0);
 
@@ -406,8 +318,4 @@ public class SpeedyGameTest {
     }
 
 }
-
-
-
-
 
