@@ -12,11 +12,9 @@ public class SpeedyGame extends Game {
         if (getTrafficGreenLight()) {
             rounds = speeds.length;
         } else {
-            int i = 0;
             for (int speed : speeds) {
                 if (Math.abs(speed) <= Math.abs(maxSpeed)) {
                     rounds++;
-                    i++;
                 }
             }
         }

@@ -14,11 +14,9 @@ public class Game {
         if (trafficGreenLight == true) {
             rounds = speeds.length;
         } else {
-            int i = 0;
             for (int speed : speeds) {
                 if (speed == 0) {
                     rounds++;
-                    i++;
                 }
             }
         }
