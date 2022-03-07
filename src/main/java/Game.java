@@ -1,25 +1,27 @@
 public class Game {
     private boolean trafficGreenLight;
 
-
-    public Game(boolean trafficGreenLight) {                 //конструктор
+    public Game(boolean trafficGreenLight) {
         this.trafficGreenLight = trafficGreenLight;
     }
 
-    public boolean getTrafficGreenLight() {                            // геттер
+    public boolean getTrafficGreenLight() {
         return trafficGreenLight;
     }
 
-    public void setTrafficGreenLight(boolean newTrafficGreenLight) {            // сеттер
-        trafficGreenLight = newTrafficGreenLight;
-    }
-
-    public boolean isFailed(int speed) {                            // метод
-        if (trafficGreenLight == false && Math.abs(speed) != 0) {
-            return false;
+    public int roundsGame(int[] speeds) {
+        int rounds = 0;
+        if (trafficGreenLight == true) {
+            rounds = speeds.length;
         } else {
-            return true;
+            int i = 0;
+            for (int speed : speeds) {
+                if (speed == 0) {
+                    rounds++;
+                    i++;
+                }
+            }
         }
+        return rounds;
     }
 }
-
