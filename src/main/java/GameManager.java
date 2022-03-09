@@ -9,4 +9,8 @@ public class GameManager {
     public int countRounds(int[] speeds) {
         return game.roundsGame(speeds);
     }
+
+    public int whoLost(Movable p1, Movable p2, Game game, int rounds) {
+        return game.loser(p1, p2, game, rounds);
+    }
 }

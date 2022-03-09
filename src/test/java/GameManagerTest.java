@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 public class GameManagerTest {
 
     @Test
-    public void gameManagerGameRed() {
+    public void gameManagerRoundsGameGameRed() {
         GameManager gameManager = new GameManager(new Game(false));
         int[] speeds = {3, -4, 7, 0, 5, 0};
         int expected = 2;
@@ -14,7 +14,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerGameGreen() {
+    public void gameManagerRoundsGameGameGreen() {
         GameManager gameManager = new GameManager(new Game(true));
         int[] speeds = {3, -4, 6, 0, -5, 0};
         int expected = 6;
@@ -24,7 +24,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerSpeedyGameRed() {
+    public void gameManagerRoundsGameSpeedyGameRed() {
         GameManager gameManager = new GameManager(new SpeedyGame(false, 5));
         int[] speeds = {3, -4, 6, 0, -5};
         int expected = 4;
@@ -34,7 +34,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerSpeedyGameGreen() {
+    public void gameManagerRoundsGameSpeedyGameGreen() {
         GameManager gameManager = new GameManager(new SpeedyGame(true, 5));
         int[] speeds = {3, -4, 6, 0, 5};
         int expected = 5;
@@ -44,7 +44,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerSpeedyGameMaxSpeedNegRed() {
+    public void gameManagerRoundsGameSpeedyGameMaxSpeedNegRed() {
         GameManager gameManager = new GameManager(new SpeedyGame(false, -5));
         int[] speeds = {3, -4, -6, 0, -5};
         int expected = 4;
@@ -54,7 +54,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerSpeedyGameMaxSpeedNegGreen() {
+    public void gameManagerRoundsGameSpeedyGameMaxSpeedNegGreen() {
         GameManager gameManager = new GameManager(new SpeedyGame(true, -5));
         int[] speeds = {3, -4, -6, 0, -5};
         int expected = 5;
@@ -64,7 +64,7 @@ public class GameManagerTest {
     }
 
     @Test
-    public void gameManagerSpeedyGameOtherArrRed() {
+    public void gameManagerRoundsGameSpeedyGameOtherArrRed() {
         GameManager gameManager = new GameManager(new SpeedyGame(false, -5));
         int[] speeds = {3, -4, -6, 0, -5, 0, 8, -7};
         int expected = 5;
@@ -82,4 +82,5 @@ public class GameManagerTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
 }
