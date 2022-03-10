@@ -7,7 +7,16 @@ public class SpeedyGame extends Game {
     }
 
     @Override
-    public int roundsGame(int[] speeds) {
+    public boolean isFailed(int speed) {                                //определяет результат по одной скорости
+        if (!getTrafficGreenLight() && Math.abs(speed) > maxSpeed) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int roundsGame(int[] speeds) {   //считает количество успешных раундов из массива скоростей
         int rounds = 0;
         if (getTrafficGreenLight()) {
             rounds = speeds.length;
@@ -20,32 +29,5 @@ public class SpeedyGame extends Game {
         }
         return rounds;
     }
-
-    @Override
-    public int loser(Movable p1, Movable p2, Game game, int rounds) {
-        int i = 0;
-        int x = 0;
-        if (getTrafficGreenLight()) {
-            x = 0;
-        } else {
-            if (Math.abs(p1.getSpeed()) <= Math.abs(maxSpeed)) {
-                while (i != Math.abs(rounds)) {
-                    if (Math.abs(p2.getSpeed()) <= Math.abs(maxSpeed)) {
-                        i++;
-                    } else {
-                        x = 1;
-                        break;
-                    }
-                }
-            } else {
-                if (Math.abs(p2.getSpeed()) > Math.abs(maxSpeed)) {
-                    x = 0;
-                } else {
-                    x = -1;
-                }
-            }
-
-        }
-        return x;
-    }
 }
+

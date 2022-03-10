@@ -9,9 +9,17 @@ public class Game {
         return trafficGreenLight;
     }
 
-    public int roundsGame(int[] speeds) {
-        int rounds = 0;
-        if (trafficGreenLight == true) {
+    public boolean isFailed(int speed) {                            //определяет результат по одной скорости
+        if (!trafficGreenLight && Math.abs(speed) != 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int roundsGame(int[] speeds) {           //считает количество успешных раундов из массива скоростей
+       int rounds = 0;
+        if (trafficGreenLight) {
             rounds = speeds.length;
         } else {
             for (int speed : speeds) {
@@ -22,33 +30,6 @@ public class Game {
         }
         return rounds;
     }
-
-
-    public int loser(Movable p1, Movable p2, Game game, int rounds) {
-        int i = 0;
-        int x = 0;
-        if (getTrafficGreenLight()) {
-            x = 0;
-        } else {
-            if (Math.abs(p1.getSpeed()) == 0) {
-                while (i != Math.abs(rounds)) {
-                    if (Math.abs(p2.getSpeed()) == 0) {
-                        i++;
-                    } else {
-                        x = 1;
-                        break;
-                    }
-                }
-            } else {
-                if (Math.abs(p2.getSpeed()) != 0) {
-                    x = 0;
-                } else {
-                    x = -1;
-                }
-            }
-
-        }
-        return x;
-    }
 }
+
 

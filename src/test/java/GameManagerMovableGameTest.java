@@ -12,7 +12,7 @@ public class GameManagerMovableGameTest {
         Movable p1 = new ConstantPlayer(speed);
         Movable p2 = new FastPlayer(startSpeed, speedStep);
 
-        int actual = gameManager.whoLost(p1, p2, game, rounds);
+        int actual = gameManager.loser (p1, p2, game, rounds);
 
         Assertions.assertEquals(expected, actual);
     }
@@ -24,7 +24,7 @@ public class GameManagerMovableGameTest {
         Movable p1 = new ConstantPlayer(speed);
         Movable p2 = new FastPlayer(startSpeed, speedStep);
 
-        int actual = gameManager.whoLost(p1, p2, game, rounds);
+        int actual = gameManager.loser(p1, p2, game, rounds);
 
         Assertions.assertEquals(expected, actual);
     }
