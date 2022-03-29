@@ -18,7 +18,7 @@ public class Game {
     }
 
     public int roundsGame(int[] speeds) {           //считает количество успешных раундов из массива скоростей
-       int rounds = 0;
+        int rounds = 0;
         if (trafficGreenLight) {
             rounds = speeds.length;
         } else {
@@ -31,5 +31,4 @@ public class Game {
         return rounds;
     }
 }
-
 

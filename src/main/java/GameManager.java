@@ -10,29 +10,27 @@ public class GameManager {
         return game.roundsGame(speeds);
     }
 
-    public int loser (Movable p1, Movable p2, Game game, int rounds) {
-        int i = 0;
-        int x = 0;
+    public int loser(Movable p1, Movable p2, Game game, int rounds) {
+        int countR1 = 0;
+        int countR2 = 0;
         if (game.getTrafficGreenLight()) {
-            x = 0;
+            return 0;
         } else {
-            if (game.isFailed(p1.getSpeed())) {
-                while (i != Math.abs(rounds)) {
-                    if (game.isFailed(p2.getSpeed())) {
-                        i++;
-                    } else {
-                        x = 1;
-                        break;
-                    }
-                }
+            while (game.isFailed(p1.getSpeed()) && countR1 != rounds) {
+                countR1++;
+            }
+            while (game.isFailed(p2.getSpeed()) && countR2 != rounds) {
+                countR2++;
+            }
+            if (countR1 == countR2) {
+                return 0;
             } else {
-                if (!game.isFailed(p2.getSpeed())) {
-                    x = 0;
+                if (countR1 < countR2) {
+                    return -1;
                 } else {
-                    x = -1;
+                    return 1;
                 }
             }
         }
-        return x;
     }
 }

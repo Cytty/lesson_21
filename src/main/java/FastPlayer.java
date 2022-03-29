@@ -4,13 +4,13 @@ public class FastPlayer implements Movable {
 
     public int getSpeed() {
         int buffer = Math.abs(startSpeed);
-        this.startSpeed = Math.abs(startSpeed) + speedStep;
+        this.startSpeed = Math.abs(startSpeed) + Math.abs(speedStep);
         return buffer;
     }
 
     public FastPlayer(int startSpeed, int speedStep) {
         this.startSpeed = Math.abs(startSpeed);
-        this.speedStep = speedStep;
+        this.speedStep = Math.abs(speedStep);
     }
 
 }
