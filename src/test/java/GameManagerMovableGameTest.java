@@ -110,7 +110,6 @@ public class GameManagerMovableGameTest {
     }
 
 
-
     @Test
     public void gameManagerMovableTwoFPGameAllLos1r() {
         Game game = new Game(false);
